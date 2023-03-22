@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+    <br>
+    Please select at least 2 symptoms for increased accuracy
+    <br>
+
+{% if form.is_valid %}
+    <br>
+    <p> The model predicted: <b>{{ prediction }}</b></p>
+{% endif %}
+
+{% endblock %}
+
+</body>
+</html>
